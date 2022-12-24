@@ -89,9 +89,9 @@ function home() {
 
         holderLi.style.display = "flex";
 
-        hideSidebar()
 
     }
+    hideSidebar()
 }
 
 // Sorting system according to "Starred" elements
@@ -153,11 +153,12 @@ function showStarred() {
 
                     filter.style.display = "none";
 
-                    hideSidebar()
+
                 }
             }
         }
     }
+    hideSidebar()
 }
 
 
@@ -178,10 +179,11 @@ function showUpcoming() {
             if (unmarked.classList.contains("completed") == true) {
                 unmarked.parentElement.style.display = "none";
 
-                hideSidebar()
+
             }
         }
     }
+    hideSidebar()
 }
 
 
@@ -201,8 +203,9 @@ function completedTasks() {
             if (unmarked.classList.contains("completed") !== true) {
                 unmarked.parentElement.style.display = "none";
 
-                hideSidebar()
+
             }
         }
     }
+    hideSidebar()
 }

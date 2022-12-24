@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./src/styles/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script defer src="./src/scripts/index.js" type="text/javascript"></script>
+    <title>Task-in</title>
+  </head>
+  <body>
+    <!-- Sidenav Section -->
+
+    <section class="sidenav center">
+      <a href="#" class="new center"
+        ><i class="fas fa-plus" title="New" onclick="newTask()"> </i
+      ></a>
+      <ul class="center" id="selection">
+        <li class="center active">
+          <a href="#" class="center"
+            ><i class="fas fa-home" title="Home" onclick="home()"></i
+          ></a>
+        </li>
+        <li>
+          <a href="#" class="center"
+            ><i class="fas fa-star" title="Starred" onclick="showStarred()"></i
+          ></a>
+        </li>
+        <li>
+          <a href="#" class="center"
+            ><i
+              class="fas fa-circle"
+              title="Upcoming"
+              onclick="showUpcoming()"
+            ></i
+          ></a>
+        </li>
+        <li>
+          <a href="#" class="center"
+            ><i
+              class="fas fa-check"
+              title="Complete"
+              onclick="completedTasks()"
+            ></i
+          ></a>
+        </li>
+      </ul>
+      <a href="./src/pages/about.html" class="about center"
+        ><i class="fas fa-question" title="About"></i
+      ></a>
+    </section>
+
+    <!-- Topbar Section -->
+
+    <section class="topbar center">
+      <div class="more-wrapper">
+        <div class="show-more center">
+          <div class="more">
+            <i class="fas fa-bars" id="openbar" onclick="showSidebar()"></i>
+            <i
+              class="fas fa-times closebar"
+              id="closebar"
+              onclick="hideSidebar()"
+            ></i>
+            <div class="more-container" id="more-container">
+              <ul>
+                <li>
+                  <a class="new-task" onclick="newTask()">New task</a>
+                </li>
+                <li>
+                  <a onclick="home()">Home</a>
+                </li>
+                <li>
+                  <a onclick="showStarred()">Starred</a>
+                </li>
+                <li>
+                  <a onclick="showUpcoming()">Upcoming</a>
+                </li>
+                <li>
+                  <a onclick="completedTasks()">Complete</a>
+                </li>
+                <li>
+                  <a>About</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-container center">
+        <div class="search-container center">
+          <input type="text" placeholder="search. . ." id="Searchbar" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Section -->
+
+    <section class="main center">
+      <div class="notes-container center">
+        <div class="notes">
+          <p class="notes-text">Today</p>
+          <ul id="notes-hold"></ul>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

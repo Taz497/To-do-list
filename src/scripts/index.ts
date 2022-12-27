@@ -8,7 +8,7 @@ let starred = document.getElementsByClassName("star");
 let trash = document.getElementById("close");
 let hold = document.getElementById("notes-hold");
 let selection = document.getElementById("selection");
-let saveItems = document.getElementsByClassName("title");
+let saveItems = document.getElementsByClassName("title")["value"];
 
 
 // Sidebar show/hide
@@ -26,6 +26,14 @@ function hideSidebar() {
     closebar.style.display = "none";
 }
 
+
+// Save tasks
+
+saveItems.addEventListener('change', () => {
+    localStorage.setItem("count", saveItems.value);
+});
+
+
 // New Task 
 
 function newTask() {
@@ -39,6 +47,11 @@ function newTask() {
     let dom_k = document.createElement("i");
     let dom_input = document.createElement("input");
     let dom_j = document.createElement("i")
+
+    // For dom_input
+
+    let count = 0;
+    count++;
 
     // Sets attributes and events for the i,i,input,i elements inside li
 
@@ -55,6 +68,7 @@ function newTask() {
     dom_input.setAttribute("type", "text");
     dom_input.setAttribute("placeholder", "title");
     dom_input.classList.add("title");
+
     dom_j.setAttribute("class", "fas fa-times close");
     dom_j.setAttribute("title", "Remove");
     dom_j.setAttribute("onclick", "this.parentElement.remove()");
@@ -68,6 +82,7 @@ function newTask() {
     li.appendChild(dom_k);
 
     // Hides Sidebar after invoked (Mobile) 
+
 
     hideSidebar()
 
@@ -159,6 +174,7 @@ function showStarred() {
         }
     }
     hideSidebar()
+
 }
 
 
@@ -166,6 +182,7 @@ function showStarred() {
 
 function showUpcoming() {
 
+    home()
     let holder = hold.getElementsByTagName("li");
 
     for (let a = 0; a < holder.length; a++) {
@@ -190,6 +207,8 @@ function showUpcoming() {
 // Sorting system according to "Completed" elements 
 
 function completedTasks() {
+
+    home()
     let holder = hold.getElementsByTagName("li");
 
     for (let a = 0; a < holder.length; a++) {
@@ -209,3 +228,4 @@ function completedTasks() {
     }
     hideSidebar()
 }
+

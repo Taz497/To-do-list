@@ -235,8 +235,8 @@ body {
   width: 100%;
 }
 
-.notes-text {
-  font-size: 1.7rem;
+#notes-text {
+  font-size: 1.3rem;
   margin-left: 1%;
   margin-bottom: 10px;
 }

@@ -28,12 +28,12 @@
       <ul class="center" id="selection">
         <li class="center active">
           <a href="#" class="center"
-            ><i class="fas fa-home" title="Home" onclick="home()"></i
+            ><i class="fas fa-home" title="Home" onclick="home(this)"></i
           ></a>
         </li>
         <li>
           <a href="#" class="center"
-            ><i class="fas fa-star" title="Starred" onclick="showStarred()"></i
+            ><i class="fas fa-star" title="Starred" onclick="showStarred(this)"></i
           ></a>
         </li>
         <li>
@@ -41,7 +41,7 @@
             ><i
               class="fas fa-circle"
               title="Upcoming"
-              onclick="showUpcoming()"
+              onclick="showUpcoming(this)"
             ></i
           ></a>
         </li>
@@ -50,7 +50,7 @@
             ><i
               class="fas fa-check"
               title="Complete"
-              onclick="completedTasks()"
+              onclick="completedTasks(this)"
             ></i
           ></a>
         </li>
@@ -109,7 +109,7 @@
     <section class="main center">
       <div class="notes-container center">
         <div class="notes">
-          <p class="notes-text">Today</p>
+          <p id="notes-text"></p>
           <ul id="notes-hold"></ul>
         </div>
       </div>

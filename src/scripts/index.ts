@@ -9,7 +9,20 @@ let trash = document.getElementById("close");
 let hold = document.getElementById("notes-hold");
 let selection = document.getElementById("selection");
 let saveItems = document.getElementsByClassName("title")["value"];
+let showDate = document.getElementById("notes-text");
 
+
+// Display date
+
+const date = new Date();
+
+let day = date.getDate();
+let month = date.getMonth() + 1;
+let year = date.getFullYear();
+
+let currentDate = `${day} - ${month} - ${year}`;
+
+let createDate = showDate.innerText = "Created at \xa0 : \xa0" + currentDate;
 
 // Sidebar show/hide
 
@@ -27,11 +40,18 @@ function hideSidebar() {
 }
 
 
-// Save tasks
+// Selection
 
-saveItems.addEventListener('change', () => {
-    localStorage.setItem("count", saveItems.value);
-});
+function selectFilter(selected) {
+    let selectionLi = selection.getElementsByTagName("li");
+
+    for (let i = 0; i < selectionLi.length; i++) {
+        const selectedItem = selectionLi[i];
+
+        selectedItem.classList.remove("active");
+        selected.classList.add("active");
+    }
+}
 
 
 // New Task 
@@ -90,7 +110,7 @@ function newTask() {
 
 // Show all hiden elements
 
-function home() {
+function home(a) {
     // Get all the childrens of hold(ul)
 
     let holder = hold.getElementsByTagName("li");
@@ -104,6 +124,27 @@ function home() {
 
         holderLi.style.display = "flex";
 
+    }
+    hideSidebar()
+    selectFilter(a.parentElement.parentElement)
+
+}
+
+// Duplicate of "home" to counter bugs
+
+function dupelicateHome() {
+    // Get all the childrens of hold(ul)
+
+    let holder = hold.getElementsByTagName("li");
+
+    // Iterate through the childrens of hold and place them in holderLi
+
+    for (let a = 0; a < holder.length; a++) {
+        const holderLi = holder[a];
+
+        // Show all hold childrens
+
+        holderLi.style.display = "flex";
 
     }
     hideSidebar()
@@ -111,7 +152,7 @@ function home() {
 
 // Sorting system according to "Starred" elements
 
-function showStarred() {
+function showStarred(a) {
 
     // Get all the childrens of hold(ul)
 
@@ -167,22 +208,22 @@ function showStarred() {
                     // Hide all elements that contains the class "sorted"
 
                     filter.style.display = "none";
-
-
                 }
             }
         }
     }
     hideSidebar()
-
+    selectFilter(a.parentElement.parentElement)
 }
+
+
 
 
 // Sorting system according to "Upcoming" elements
 
-function showUpcoming() {
+function showUpcoming(a) {
 
-    home()
+    dupelicateHome()
     let holder = hold.getElementsByTagName("li");
 
     for (let a = 0; a < holder.length; a++) {
@@ -201,14 +242,15 @@ function showUpcoming() {
         }
     }
     hideSidebar()
+    selectFilter(a.parentElement.parentElement)
 }
 
 
 // Sorting system according to "Completed" elements 
 
-function completedTasks() {
+function completedTasks(a) {
 
-    home()
+    dupelicateHome()
     let holder = hold.getElementsByTagName("li");
 
     for (let a = 0; a < holder.length; a++) {
@@ -227,5 +269,6 @@ function completedTasks() {
         }
     }
     hideSidebar()
+    selectFilter(a.parentElement.parentElement)
 }
 

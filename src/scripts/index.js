@@ -7,6 +7,13 @@ var trash = document.getElementById("close");
 var hold = document.getElementById("notes-hold");
 var selection = document.getElementById("selection");
 var saveItems = document.getElementsByClassName("title")["value"];
+var showDate = document.getElementById("notes-text");
+var date = new Date();
+var day = date.getDate();
+var month = date.getMonth() + 1;
+var year = date.getFullYear();
+var currentDate = "".concat(day, " - ").concat(month, " - ").concat(year);
+var createDate = showDate.innerText = "Created at \xa0 : \xa0" + currentDate;
 function showSidebar() {
     sidebar.style.display = "block";
     openbar.style.display = "none";
@@ -17,9 +24,14 @@ function hideSidebar() {
     openbar.style.display = "block";
     closebar.style.display = "none";
 }
-saveItems.addEventListener('change', function () {
-    localStorage.setItem("count", saveItems.value);
-});
+function selectFilter(selected) {
+    var selectionLi = selection.getElementsByTagName("li");
+    for (var i = 0; i < selectionLi.length; i++) {
+        var selectedItem = selectionLi[i];
+        selectedItem.classList.remove("active");
+        selected.classList.add("active");
+    }
+}
 function newTask() {
     var li = document.createElement("li");
     li.classList.add("center");
@@ -53,7 +65,16 @@ function newTask() {
     li.appendChild(dom_k);
     hideSidebar();
 }
-function home() {
+function home(a) {
+    var holder = hold.getElementsByTagName("li");
+    for (var a_1 = 0; a_1 < holder.length; a_1++) {
+        var holderLi = holder[a_1];
+        holderLi.style.display = "flex";
+    }
+    hideSidebar();
+    selectFilter(a.parentElement.parentElement);
+}
+function dupelicateHome() {
     var holder = hold.getElementsByTagName("li");
     for (var a = 0; a < holder.length; a++) {
         var holderLi = holder[a];
@@ -61,10 +82,10 @@ function home() {
     }
     hideSidebar();
 }
-function showStarred() {
+function showStarred(a) {
     var holder = hold.getElementsByTagName("li");
-    for (var a = 0; a < holder.length; a++) {
-        var holderLi = holder[a];
+    for (var a_2 = 0; a_2 < holder.length; a_2++) {
+        var holderLi = holder[a_2];
         var checking = holderLi.getElementsByClassName("starred");
         for (var i = 0; i < checking.length; i++) {
             var icon = checking[i];
@@ -86,34 +107,37 @@ function showStarred() {
         }
     }
     hideSidebar();
+    selectFilter(a.parentElement.parentElement);
 }
-function showUpcoming() {
-    home();
+function showUpcoming(a) {
+    dupelicateHome();
     var holder = hold.getElementsByTagName("li");
-    for (var a = 0; a < holder.length; a++) {
-        var holderLi = holder[a];
+    for (var a_3 = 0; a_3 < holder.length; a_3++) {
+        var holderLi = holder[a_3];
         var mark = holderLi.getElementsByClassName("mark");
-        for (var a_1 = 0; a_1 < mark.length; a_1++) {
-            var unmarked = mark[a_1];
+        for (var a_4 = 0; a_4 < mark.length; a_4++) {
+            var unmarked = mark[a_4];
             if (unmarked.classList.contains("completed") == true) {
                 unmarked.parentElement.style.display = "none";
             }
         }
     }
     hideSidebar();
+    selectFilter(a.parentElement.parentElement);
 }
-function completedTasks() {
-    home();
+function completedTasks(a) {
+    dupelicateHome();
     var holder = hold.getElementsByTagName("li");
-    for (var a = 0; a < holder.length; a++) {
-        var holderLi = holder[a];
+    for (var a_5 = 0; a_5 < holder.length; a_5++) {
+        var holderLi = holder[a_5];
         var mark = holderLi.getElementsByClassName("mark");
-        for (var a_2 = 0; a_2 < mark.length; a_2++) {
-            var unmarked = mark[a_2];
+        for (var a_6 = 0; a_6 < mark.length; a_6++) {
+            var unmarked = mark[a_6];
             if (unmarked.classList.contains("completed") !== true) {
                 unmarked.parentElement.style.display = "none";
             }
         }
     }
     hideSidebar();
+    selectFilter(a.parentElement.parentElement);
 }

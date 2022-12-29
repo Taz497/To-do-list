@@ -20,7 +20,7 @@
   outline: none;
   text-decoration: none;
   font-size: 1rem;
-  font-family: "Lato", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -223,7 +223,6 @@ body {
 
 .main {
   position: relative;
-  width: 97vw;
   height: 100%;
   margin-left: 4vw;
   justify-content: flex-start;
@@ -239,15 +238,20 @@ body {
 }
 
 #notes-text {
-  font-size: 1.3rem;
-  margin-left: 1%;
+  font-size: 1.2rem;
+  margin-left: 10px;
   margin-bottom: 10px;
+  border: solid 1px #5f607788;
+  border-radius: 5px;
+  min-width: 285px;
+  width: 20%;
+  padding: 10px 10px;
 }
 
 .notes ul {
-  width: 100%;
+  min-height: 100vh;
   height: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 12%;
   list-style: none;
   display: flex;
   align-items: flex-start;
@@ -361,8 +365,11 @@ footer {
     width: 95%;
     margin-top: 2%;
   }
-  .title[type="text"] {
-    margin-left: 14%;
+  #notes-text {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
   }
   .search-container {
     width: 80%;
@@ -384,11 +391,7 @@ footer {
   .more-wrapper {
     display: block;
   }
-  .title[type="text"] {
-    margin-left: 10px;
-    margin-right: 15%;
-    padding: 2% 0;
-  }
+
   footer {
     height: 6vh;
   }

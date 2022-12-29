@@ -194,18 +194,21 @@ body {
 }
 
 .search-container {
-  width: 40%;
+  width: 43%;
   min-width: 130px;
   height: 100%;
+  justify-content: flex-end;
 }
 
-#open {
-  display: block;
-}
+#closebtn {
+  position: absolute;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  width: 30px;
 
-#close {
-  display: none;
   color: var(--secondarycolour);
+  visibility: hidden;
 }
 
 .search-container input {
@@ -277,10 +280,10 @@ body {
 
 .notes ul li input[type="text"] {
   color: var(--primarycolour);
-  margin-right: 60%;
+  margin-right: 20%;
   margin-left: 1%;
   padding: 5px 0;
-  width: 90%;
+  width: 100%;
   height: 90%;
   font-size: 1rem;
   color: var(--primarycolour);

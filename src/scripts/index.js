@@ -8,6 +8,15 @@ var hold = document.getElementById("notes-hold");
 var selection = document.getElementById("selection");
 var saveItems = document.getElementsByClassName("title")["value"];
 var showDate = document.getElementById("notes-text");
+var delText = document.getElementById("closebtn");
+var searchbar = document.getElementById("searchbar");
+var searchbarValue = document.getElementById("searchbar")["value"];
+searchbar.addEventListener("focus", function () {
+    delText.style.visibility = "visible";
+});
+searchbar.addEventListener("blur", function () {
+    delText.style.visibility = "hidden";
+});
 var date = new Date();
 var day = date.getDate();
 var month = date.getMonth() + 1;

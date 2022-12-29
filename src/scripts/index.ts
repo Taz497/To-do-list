@@ -10,6 +10,24 @@ let hold = document.getElementById("notes-hold");
 let selection = document.getElementById("selection");
 let saveItems = document.getElementsByClassName("title")["value"];
 let showDate = document.getElementById("notes-text");
+let delText = document.getElementById("closebtn");
+let searchbar = document.getElementById("searchbar");
+let searchbarValue = document.getElementById("searchbar")["value"];
+
+
+// Save task
+
+// coming soon
+
+// Searchbar close/show
+
+searchbar.addEventListener("focus", () =>{
+    delText.style.visibility = "visible";
+} )
+
+searchbar.addEventListener("blur", () =>{
+    delText.style.visibility = "hidden";
+} )
 
 
 // Display date
@@ -31,7 +49,6 @@ function showSidebar() {
     openbar.style.display = "none";
     closebar.style.display = "block";
 }
-
 
 function hideSidebar() {
     sidebar.style.display = "none";
@@ -88,6 +105,8 @@ function newTask() {
     dom_input.setAttribute("type", "text");
     dom_input.setAttribute("placeholder", "title");
     dom_input.classList.add("title");
+
+
 
     dom_j.setAttribute("class", "fas fa-times close");
     dom_j.setAttribute("title", "Remove");
@@ -264,11 +283,13 @@ function completedTasks(a) {
             if (unmarked.classList.contains("completed") !== true) {
                 unmarked.parentElement.style.display = "none";
 
-
             }
         }
     }
     hideSidebar()
     selectFilter(a.parentElement.parentElement)
+ 
 }
+
+
 

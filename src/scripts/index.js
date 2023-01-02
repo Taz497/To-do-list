@@ -6,11 +6,23 @@ var starred = document.getElementsByClassName("star");
 var trash = document.getElementById("close");
 var hold = document.getElementById("notes-hold");
 var selection = document.getElementById("selection");
-var saveItems = document.getElementsByClassName("title")["value"];
 var showDate = document.getElementById("notes-text");
 var delText = document.getElementById("closebtn");
 var searchbar = document.getElementById("searchbar");
-var searchbarValue = document.getElementById("searchbar")["value"];
+var title = document.querySelectorAll("title");
+var newA = document.getElementById("newA");
+var newB = document.getElementById("newB");
+function taskLimit() {
+    if (hold.children.length > 9) {
+        newA.onclick = null;
+        newB.onclick = null;
+        alert("You have excceded the number of tasks for the beta version.");
+    }
+    else {
+        newA.onclick = newTask;
+        newB.onclick = newTask;
+    }
+}
 searchbar.addEventListener("focus", function () {
     delText.style.visibility = "visible";
 });
@@ -22,7 +34,7 @@ var day = date.getDate();
 var month = date.getMonth() + 1;
 var year = date.getFullYear();
 var currentDate = "".concat(day, " - ").concat(month, " - ").concat(year);
-var createDate = showDate.innerText = "Created at \xa0 : \xa0" + currentDate;
+var createDate = showDate.innerText = "Created at \xa0 : \xa0" + currentDate + "";
 function showSidebar() {
     sidebar.style.display = "block";
     openbar.style.display = "none";

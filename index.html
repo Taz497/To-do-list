@@ -18,12 +18,11 @@
     <script defer src="./src/scripts/index.js" type="text/javascript"></script>
     <title>Task-in</title>
   </head>
-  <body>
+  <body onclick="newTask()">
     <!-- Sidenav Section -->
-
     <section class="sidenav center">
       <a href="#" class="new center"
-        ><i class="fas fa-plus" title="New" onclick="newTask()"> </i
+        ><i class="fas fa-plus" title="New" id="newA"> </i
       ></a>
       <ul class="center" id="selection">
         <li class="center active">
@@ -76,7 +75,7 @@
             <div class="more-container" id="more-container">
               <ul>
                 <li>
-                  <a class="new-task" onclick="newTask()">New task</a>
+                  <a class="new-task" id="newB" onclick="newTask()">New task</a>
                 </li>
                 <li>
                   <a onclick="home()">Home</a>
@@ -97,7 +96,12 @@
       </div>
       <div class="navbar-container center">
         <div class="search-container center">
-          <input type="text" placeholder="search. . ." id="searchbar" />
+          <input
+            type="text"
+            placeholder="search. . ."
+            id="searchbar"
+            onclick="searchSystem()"
+          />
           <i class="fas fa-times" id="closebtn"></i>
         </div>
       </div>

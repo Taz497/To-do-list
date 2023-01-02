@@ -176,7 +176,7 @@ body {
 
 .more-container ul {
   list-style: none;
-  padding: 10px 50px 30px 10px;
+  padding: 10px 50px 3px 10px;
 }
 
 .more-container ul li {
@@ -397,6 +397,10 @@ footer {
 
   footer {
     height: 6vh;
+  }
+  .footer-text {
+    margin-bottom: 4px;
+    font-size: 0.8rem;
   }
 }
 @media only screen and (max-width: 320px) {

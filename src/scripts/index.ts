@@ -8,17 +8,27 @@ let starred = document.getElementsByClassName("star");
 let trash = document.getElementById("close");
 let hold = document.getElementById("notes-hold");
 let selection = document.getElementById("selection");
-let saveItems = document.getElementsByClassName("title")["value"];
 let showDate = document.getElementById("notes-text");
 let delText = document.getElementById("closebtn");
 let searchbar = document.getElementById("searchbar");
-let searchbarValue = document.getElementById("searchbar")["value"];
+let title = document.querySelectorAll("title");
+let newA = document.getElementById("newA");
+let newB = document.getElementById("newB");
 
 
-// Save task
+// Limit the tasks to 10 
+function taskLimit(){
+    if (hold.children.length > 9) {
+    newA.onclick = null;
+    newB.onclick = null;
 
-// coming soon
-
+    alert("You have excceded the number of tasks for the beta version.")
+     }else {
+       
+    newA.onclick = newTask;
+    newB.onclick = newTask;
+ }
+}
 // Searchbar close/show
 
 searchbar.addEventListener("focus", () =>{
@@ -40,7 +50,7 @@ let year = date.getFullYear();
 
 let currentDate = `${day} - ${month} - ${year}`;
 
-let createDate = showDate.innerText = "Created at \xa0 : \xa0" + currentDate;
+let createDate = showDate.innerText = "Created at \xa0 : \xa0" + currentDate + "";
 
 // Sidebar show/hide
 
@@ -290,6 +300,4 @@ function completedTasks(a) {
     selectFilter(a.parentElement.parentElement)
  
 }
-
-
 

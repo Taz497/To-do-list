@@ -158,12 +158,12 @@ body {
 }
 
 .more i {
-  cursor: pointer;
   font-size: 1.5rem;
 }
 
 #closebar {
   display: none;
+  position: absolute;
 }
 
 .more-container {

@@ -18,11 +18,11 @@
     <script defer src="./src/scripts/index.js" type="text/javascript"></script>
     <title>Task-in</title>
   </head>
-  <body onclick="newTask()">
+  <body>
     <!-- Sidenav Section -->
     <section class="sidenav center">
-      <a href="#" class="new center"
-        ><i class="fas fa-plus" title="New" id="newA"> </i
+      <a href="#" class="new center" onclick="taskLimit()"
+        ><i class="fas fa-plus" title="New" id="newA" onclick="newTask()"> </i
       ></a>
       <ul class="center" id="selection">
         <li class="center active">
@@ -100,9 +100,10 @@
             type="text"
             placeholder="search. . ."
             id="searchbar"
+            value=""
             onclick="searchSystem()"
           />
-          <i class="fas fa-times" id="closebtn"></i>
+          <i class="fas fa-times" id="closebtn" onclick="clearSearch()"></i>
         </div>
       </div>
     </section>

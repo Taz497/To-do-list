@@ -16,29 +16,31 @@ let newA = document.getElementById("newA");
 let newB = document.getElementById("newB");
 
 
-// Limit the tasks to 10 
-function taskLimit(){
-    if (hold.children.length > 9) {
-    newA.onclick = null;
-    newB.onclick = null;
+// Save tasks
 
-    alert("You have excceded the number of tasks for the beta version.")
-     }else {
-       
-    newA.onclick = newTask;
-    newB.onclick = newTask;
- }
+
+
+// Search system
+
+function searchSystem(){
+    console.log("yo")
 }
+
 // Searchbar close/show
 
-searchbar.addEventListener("focus", () =>{
+searchbar.addEventListener("click", () =>{
     delText.style.visibility = "visible";
 } )
 
-searchbar.addEventListener("blur", () =>{
+delText.addEventListener("click", () =>{
     delText.style.visibility = "hidden";
 } )
 
+// Clear searchbar
+
+function clearSearch(){
+    (<HTMLInputElement | null>searchbar).value = null;
+}
 
 // Display date
 
@@ -80,6 +82,19 @@ function selectFilter(selected) {
     }
 }
 
+// Limit the tasks to 10 
+function taskLimit(){
+    if (hold.children.length > 9) {
+    newA.onclick = null;
+    newB.onclick = null;
+
+    alert("You have excceded the number of tasks for the beta version.")
+     }else {
+       
+    newA.onclick = newTask;
+    newB.onclick = newTask;
+ }
+}
 
 // New Task 
 
@@ -115,9 +130,20 @@ function newTask() {
     dom_input.setAttribute("type", "text");
     dom_input.setAttribute("placeholder", "title");
     dom_input.classList.add("title");
+    dom_input.classList.add("task-9")
+    
 
+// Unique id for each list items
 
+    let a = document.querySelectorAll(".title");
 
+    a.forEach((dom_input, index) => {
+        dom_input.classList.remove(`task-9`)
+        dom_input.classList.add(`task-${index}`)
+    });
+    
+   
+    
     dom_j.setAttribute("class", "fas fa-times close");
     dom_j.setAttribute("title", "Remove");
     dom_j.setAttribute("onclick", "this.parentElement.remove()");
@@ -132,10 +158,11 @@ function newTask() {
 
     // Hides Sidebar after invoked (Mobile) 
 
-
     hideSidebar()
 
 }
+
+
 
 // Show all hiden elements
 

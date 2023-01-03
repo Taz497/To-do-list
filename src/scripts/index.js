@@ -12,23 +12,18 @@ var searchbar = document.getElementById("searchbar");
 var title = document.querySelectorAll("title");
 var newA = document.getElementById("newA");
 var newB = document.getElementById("newB");
-function taskLimit() {
-    if (hold.children.length > 9) {
-        newA.onclick = null;
-        newB.onclick = null;
-        alert("You have excceded the number of tasks for the beta version.");
-    }
-    else {
-        newA.onclick = newTask;
-        newB.onclick = newTask;
-    }
+function searchSystem() {
+    console.log("yo");
 }
-searchbar.addEventListener("focus", function () {
+searchbar.addEventListener("click", function () {
     delText.style.visibility = "visible";
 });
-searchbar.addEventListener("blur", function () {
+delText.addEventListener("click", function () {
     delText.style.visibility = "hidden";
 });
+function clearSearch() {
+    searchbar.value = null;
+}
 var date = new Date();
 var day = date.getDate();
 var month = date.getMonth() + 1;
@@ -51,6 +46,17 @@ function selectFilter(selected) {
         var selectedItem = selectionLi[i];
         selectedItem.classList.remove("active");
         selected.classList.add("active");
+    }
+}
+function taskLimit() {
+    if (hold.children.length > 9) {
+        newA.onclick = null;
+        newB.onclick = null;
+        alert("You have excceded the number of tasks for the beta version.");
+    }
+    else {
+        newA.onclick = newTask;
+        newB.onclick = newTask;
     }
 }
 function newTask() {
@@ -76,6 +82,12 @@ function newTask() {
     dom_input.setAttribute("type", "text");
     dom_input.setAttribute("placeholder", "title");
     dom_input.classList.add("title");
+    dom_input.classList.add("task-9");
+    var a = document.querySelectorAll(".title");
+    a.forEach(function (dom_input, index) {
+        dom_input.classList.remove("task-9");
+        dom_input.classList.add("task-".concat(index));
+    });
     dom_j.setAttribute("class", "fas fa-times close");
     dom_j.setAttribute("title", "Remove");
     dom_j.setAttribute("onclick", "this.parentElement.remove()");

@@ -248,7 +248,7 @@ body {
   border-radius: 5px;
   min-width: 285px;
   width: 20%;
-  padding: 10px 10px;
+  padding: 10px;
 }
 
 .notes ul {
@@ -278,7 +278,7 @@ body {
   padding: 17px 12px;
 }
 
-.notes ul li input[type="text"] {
+.title {
   color: var(--primarycolour);
   margin-right: 20%;
   margin-left: 1%;

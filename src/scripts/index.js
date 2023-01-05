@@ -9,12 +9,9 @@ var selection = document.getElementById("selection");
 var showDate = document.getElementById("notes-text");
 var delText = document.getElementById("closebtn");
 var searchbar = document.getElementById("searchbar");
-var title = document.querySelectorAll("title");
 var newA = document.getElementById("newA");
 var newB = document.getElementById("newB");
-function searchSystem() {
-    console.log("yo");
-}
+var title = hold.querySelectorAll(".title");
 searchbar.addEventListener("click", function () {
     delText.style.visibility = "visible";
 });
@@ -82,11 +79,11 @@ function newTask() {
     dom_input.setAttribute("type", "text");
     dom_input.setAttribute("placeholder", "title");
     dom_input.classList.add("title");
-    dom_input.classList.add("task-9");
+    dom_input.setAttribute("id", "task-9");
     var a = document.querySelectorAll(".title");
     a.forEach(function (dom_input, index) {
-        dom_input.classList.remove("task-9");
-        dom_input.classList.add("task-".concat(index));
+        dom_input.removeAttribute("id");
+        dom_input.setAttribute("id", "task-".concat(index));
     });
     dom_j.setAttribute("class", "fas fa-times close");
     dom_j.setAttribute("title", "Remove");

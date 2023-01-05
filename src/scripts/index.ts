@@ -11,20 +11,14 @@ let selection = document.getElementById("selection");
 let showDate = document.getElementById("notes-text");
 let delText = document.getElementById("closebtn");
 let searchbar = document.getElementById("searchbar");
-let title = document.querySelectorAll("title");
 let newA = document.getElementById("newA");
 let newB = document.getElementById("newB");
+let title = hold.querySelectorAll(".title");
 
 
-// Save tasks
 
 
 
-// Search system
-
-function searchSystem(){
-    console.log("yo")
-}
 
 // Searchbar close/show
 
@@ -130,19 +124,15 @@ function newTask() {
     dom_input.setAttribute("type", "text");
     dom_input.setAttribute("placeholder", "title");
     dom_input.classList.add("title");
-    dom_input.classList.add("task-9")
+    dom_input.setAttribute("id","task-9")
     
-
-// Unique id for each list items
+    // Unique id for each list items
 
     let a = document.querySelectorAll(".title");
 
     a.forEach((dom_input, index) => {
-        dom_input.classList.remove(`task-9`)
-        dom_input.classList.add(`task-${index}`)
-    });
-    
-   
+        dom_input.removeAttribute(`id`)
+        dom_input.setAttribute(`id`,`task-${index}`)});
     
     dom_j.setAttribute("class", "fas fa-times close");
     dom_j.setAttribute("title", "Remove");

@@ -49,6 +49,12 @@ delText.addEventListener("click", () =>{
     delText.style.visibility = "hidden";
 } )
 
+// Mark complete
+
+function markComplete(a){
+    a.classList.toggle(`completed`)
+}
+
 // Clear searchbar
 
 function clearSearch(){

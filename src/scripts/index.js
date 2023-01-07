@@ -34,6 +34,9 @@ searchbar.addEventListener("click", function () {
 delText.addEventListener("click", function () {
     delText.style.visibility = "hidden";
 });
+function markComplete(a) {
+    a.classList.toggle("completed");
+}
 function clearSearch() {
     searchbar.value = null;
 }

@@ -13,6 +13,22 @@ var newA = document.getElementById("newA");
 var newB = document.getElementById("newB");
 var title = hold.querySelectorAll(".title");
 searchbar.addEventListener("click", function () {
+    var q = document.querySelectorAll('.title');
+    var data = new Object(q);
+    var task_0_value = data[0].value.toUpperCase();
+    var task_1_value = data[1].value.toUpperCase();
+    var task_2_value = data[2].value.toUpperCase();
+    var task_3_value = data[3].value.toUpperCase();
+    var task_4_value = data[4].value.toUpperCase();
+    var task_5_value = data[5].value.toUpperCase();
+    var task_6_value = data[6].value.toUpperCase();
+    var task_7_value = data[7].value.toUpperCase();
+    var task_8_value = data[8].value.toUpperCase();
+    var task_9_value = data[9].value.toUpperCase();
+    var taskItems = { task_0_value: task_0_value, task_1_value: task_1_value, task_2_value: task_2_value, task_3_value: task_3_value, task_4_value: task_4_value, task_5_value: task_5_value, task_6_value: task_6_value, task_7_value: task_7_value, task_8_value: task_8_value, task_9_value: task_9_value };
+    console.log(taskItems);
+});
+searchbar.addEventListener("click", function () {
     delText.style.visibility = "visible";
 });
 delText.addEventListener("click", function () {

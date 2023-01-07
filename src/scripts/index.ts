@@ -16,8 +16,27 @@ let newB = document.getElementById("newB");
 let title = hold.querySelectorAll(".title");
 
 
+searchbar.addEventListener("click",() => {
+    let q = document.querySelectorAll('.title');
 
+    let data = new Object(q);
+    
+    let task_0_value = data[0].value.toUpperCase();
+    let task_1_value = data[1].value.toUpperCase();
+    let task_2_value = data[2].value.toUpperCase()
+    let task_3_value = data[3].value.toUpperCase();
+    let task_4_value = data[4].value.toUpperCase();
+    let task_5_value = data[5].value.toUpperCase();
+    let task_6_value = data[6].value.toUpperCase();
+    let task_7_value = data[7].value.toUpperCase();
+    let task_8_value = data[8].value.toUpperCase();
+    let task_9_value = data[9].value.toUpperCase();
 
+    let taskItems = {task_0_value,task_1_value,task_2_value,task_3_value,task_4_value,task_5_value,task_6_value,task_7_value,task_8_value,task_9_value};
+
+    console.log(taskItems)
+    
+});
 
 
 // Searchbar close/show
@@ -317,4 +336,3 @@ function completedTasks(a) {
     selectFilter(a.parentElement.parentElement)
  
 }
-

@@ -13,19 +13,88 @@ var newA = document.getElementById("newA");
 var newB = document.getElementById("newB");
 var title = hold.querySelectorAll(".title");
 searchbar.addEventListener("click", function () {
-    var q = document.querySelectorAll('.title');
-    var data = new Object(q);
-    var task_0_value = data[0].value.toUpperCase();
-    var task_1_value = data[1].value.toUpperCase();
-    var task_2_value = data[2].value.toUpperCase();
-    var task_3_value = data[3].value.toUpperCase();
-    var task_4_value = data[4].value.toUpperCase();
-    var task_5_value = data[5].value.toUpperCase();
-    var task_6_value = data[6].value.toUpperCase();
-    var task_7_value = data[7].value.toUpperCase();
-    var task_8_value = data[8].value.toUpperCase();
-    var task_9_value = data[9].value.toUpperCase();
-    var taskItems = { task_0_value: task_0_value, task_1_value: task_1_value, task_2_value: task_2_value, task_3_value: task_3_value, task_4_value: task_4_value, task_5_value: task_5_value, task_6_value: task_6_value, task_7_value: task_7_value, task_8_value: task_8_value, task_9_value: task_9_value };
+    var task_0_value;
+    if (document.getElementById("task-0") == null) {
+        task_0_value = "";
+    }
+    else {
+        task_0_value = document.getElementById("task-0").value;
+    }
+    var task_1_value;
+    if (document.getElementById("task-1") == null) {
+        task_1_value = "";
+    }
+    else {
+        task_1_value = document.getElementById("task-1").value;
+    }
+    var task_2_value;
+    if (document.getElementById("task-2") == null) {
+        task_2_value = "";
+    }
+    else {
+        task_2_value = document.getElementById("task-2").value;
+    }
+    var task_3_value;
+    if ((task_3_value = document.getElementById("task-3") == null)) {
+        task_3_value = "";
+    }
+    else {
+        task_3_value = document.getElementById("task-3").value;
+    }
+    var task_4_value;
+    if (document.getElementById("task-4") == null) {
+        task_4_value = "";
+    }
+    else {
+        task_4_value = document.getElementById("task-4").value;
+    }
+    var task_5_value;
+    if (document.getElementById("task-5") == null) {
+        task_5_value = "";
+    }
+    else {
+        task_5_value = document.getElementById("task-5").value;
+    }
+    var task_6_value;
+    if (document.getElementById("task-6") == null) {
+        task_6_value = "";
+    }
+    else {
+        task_6_value = document.getElementById("task-6").value;
+    }
+    var task_7_value;
+    if (document.getElementById("task-7") == null) {
+        task_7_value = "";
+    }
+    else {
+        task_7_value = document.getElementById("task-7").value;
+    }
+    var task_8_value;
+    if (document.getElementById("task-8") == null) {
+        task_8_value = "";
+    }
+    else {
+        task_8_value = document.getElementById("task-8").value;
+    }
+    var task_9_value;
+    if (document.getElementById("task-9") == null) {
+        task_9_value = "";
+    }
+    else {
+        task_9_value = document.getElementById("task-9").value;
+    }
+    var taskItems = {
+        task_0_value: task_0_value,
+        task_1_value: task_1_value,
+        task_2_value: task_2_value,
+        task_3_value: task_3_value,
+        task_4_value: task_4_value,
+        task_5_value: task_5_value,
+        task_6_value: task_6_value,
+        task_7_value: task_7_value,
+        task_8_value: task_8_value,
+        task_9_value: task_9_value,
+    };
     console.log(taskItems);
 });
 searchbar.addEventListener("click", function () {
@@ -45,7 +114,8 @@ var day = date.getDate();
 var month = date.getMonth() + 1;
 var year = date.getFullYear();
 var currentDate = "".concat(day, " - ").concat(month, " - ").concat(year);
-var createDate = showDate.innerText = "Created at \xa0 : \xa0" + currentDate + "";
+var createDate = (showDate.innerText =
+    "Created at \xa0 : \xa0" + currentDate + "");
 function showSidebar() {
     sidebar.style.display = "block";
     openbar.style.display = "none";
@@ -138,7 +208,7 @@ function showStarred(a) {
         var checking = holderLi.getElementsByClassName("starred");
         for (var i = 0; i < checking.length; i++) {
             var icon = checking[i];
-            icon.parentElement.style.display = 'flex';
+            icon.parentElement.style.display = "flex";
             var staring = document.getElementsByClassName("star");
             for (var i_1 = 0; i_1 < staring.length; i_1++) {
                 var star = staring[i_1];
@@ -146,7 +216,7 @@ function showStarred(a) {
                     star.parentElement.classList.add("sorted");
                 }
                 else
-                    (star.parentElement.classList.remove('sorted'));
+                    star.parentElement.classList.remove("sorted");
                 var sort = hold.getElementsByClassName("sorted");
                 for (var i_2 = 0; i_2 < sort.length; i_2++) {
                     var filter = sort[i_2];

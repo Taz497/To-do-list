@@ -12,7 +12,8 @@ var searchbar = document.getElementById("searchbar");
 var newA = document.getElementById("newA");
 var newB = document.getElementById("newB");
 var title = hold.querySelectorAll(".title");
-searchbar.addEventListener("click", function () {
+searchbar.addEventListener("keyup", function () {
+    dupelicateHome();
     var task_0_value;
     if (document.getElementById("task-0") == null) {
         task_0_value = "";
@@ -83,18 +84,18 @@ searchbar.addEventListener("click", function () {
     else {
         task_9_value = document.getElementById("task-9").value;
     }
-    var taskItems = {
-        task_0_value: task_0_value,
-        task_1_value: task_1_value,
-        task_2_value: task_2_value,
-        task_3_value: task_3_value,
-        task_4_value: task_4_value,
-        task_5_value: task_5_value,
-        task_6_value: task_6_value,
-        task_7_value: task_7_value,
-        task_8_value: task_8_value,
-        task_9_value: task_9_value,
-    };
+    var taskItems = [
+        task_0_value,
+        task_1_value,
+        task_2_value,
+        task_3_value,
+        task_4_value,
+        task_5_value,
+        task_6_value,
+        task_7_value,
+        task_8_value,
+        task_9_value,
+    ];
     console.log(taskItems);
 });
 searchbar.addEventListener("click", function () {
@@ -167,6 +168,7 @@ function newTask() {
     });
     dom_input.setAttribute("type", "text");
     dom_input.setAttribute("placeholder", "title");
+    dom_input.setAttribute("maxlength", "45");
     dom_input.classList.add("title");
     dom_input.setAttribute("id", "task-9");
     var a = document.querySelectorAll(".title");

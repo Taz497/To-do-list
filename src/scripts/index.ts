@@ -17,7 +17,8 @@ let title = hold.querySelectorAll(".title");
 
 // Search System
 
-searchbar.addEventListener("click", () => {
+searchbar.addEventListener("keyup", () => {
+  dupelicateHome();
   let task_0_value;
 
   if (<HTMLInputElement>document.getElementById("task-0") == null) {
@@ -91,7 +92,7 @@ searchbar.addEventListener("click", () => {
     task_9_value = (<HTMLInputElement>document.getElementById("task-9")).value;
   }
 
-  let taskItems = {
+  let taskItems = [
     task_0_value,
     task_1_value,
     task_2_value,
@@ -102,7 +103,7 @@ searchbar.addEventListener("click", () => {
     task_7_value,
     task_8_value,
     task_9_value,
-  };
+  ];
 
   console.log(taskItems);
 });
@@ -214,6 +215,7 @@ function newTask() {
   });
   dom_input.setAttribute("type", "text");
   dom_input.setAttribute("placeholder", "title");
+  dom_input.setAttribute("maxlength", "45");
   dom_input.classList.add("title");
   dom_input.setAttribute("id", "task-9");
 

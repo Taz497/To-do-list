@@ -15,6 +15,50 @@ let newB = document.getElementById("newB");
 let title = hold.querySelectorAll(".title");
 let searchBar = document.getElementById("searchbar");
 
+// Info
+
+console.log(
+  "Hi there! I am Tazim and this my second project with HTML, CSS and JavaScript." +
+    "\n" +
+    "Date started : 17/12/2022" +
+    "\n" +
+    "Date ended : 09/01/2023"
+);
+
+// Searchbar close/show
+
+searchBar.addEventListener("click", () => {
+  delText.style.visibility = "visible";
+});
+
+delText.addEventListener("click", () => {
+  delText.style.visibility = "hidden";
+});
+
+// Mark complete
+
+function markComplete(a) {
+  a.classList.toggle(`completed`);
+}
+
+// Clear searchbar
+
+function clearSearch() {
+  (<HTMLInputElement | null>searchBar).value = null;
+}
+
+// Clear all marked elements
+
+function clearMarked() {
+  let markedItems = document.getElementsByClassName("title");
+
+  for (let i = 0; i < markedItems.length; i++) {
+    let removeMarked = markedItems[i];
+
+    removeMarked.classList.remove("found");
+  }
+}
+
 // Search System
 
 searchBar.addEventListener("keyup", () => {
@@ -148,41 +192,6 @@ searchBar.addEventListener("keyup", () => {
     }
   }
 });
-
-// Searchbar close/show
-
-searchBar.addEventListener("click", () => {
-  delText.style.visibility = "visible";
-});
-
-delText.addEventListener("click", () => {
-  delText.style.visibility = "hidden";
-});
-
-// Mark complete
-
-function markComplete(a) {
-  a.classList.toggle(`completed`);
-}
-
-// Clear searchbar
-
-function clearSearch() {
-  (<HTMLInputElement | null>searchBar).value = null;
-}
-
-// Clear all marked elements
-
-function clearMarked() {
-  
-  let markedItems = document.getElementsByClassName("title");
-
-  for (let i = 0; i < markedItems.length; i++) {
-    let removeMarked = markedItems[i];
-
-    removeMarked.classList.remove("found");
-  }
-}
 
 // Display date
 

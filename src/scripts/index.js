@@ -12,6 +12,30 @@ var newA = document.getElementById("newA");
 var newB = document.getElementById("newB");
 var title = hold.querySelectorAll(".title");
 var searchBar = document.getElementById("searchbar");
+console.log("Hi there! I am Tazim and this my second project with HTML, CSS and JavaScript." +
+    "\n" +
+    "Date started : 17/12/2022" +
+    "\n" +
+    "Date ended : 09/01/2023");
+searchBar.addEventListener("click", function () {
+    delText.style.visibility = "visible";
+});
+delText.addEventListener("click", function () {
+    delText.style.visibility = "hidden";
+});
+function markComplete(a) {
+    a.classList.toggle("completed");
+}
+function clearSearch() {
+    searchBar.value = null;
+}
+function clearMarked() {
+    var markedItems = document.getElementsByClassName("title");
+    for (var i = 0; i < markedItems.length; i++) {
+        var removeMarked = markedItems[i];
+        removeMarked.classList.remove("found");
+    }
+}
 searchBar.addEventListener("keyup", function () {
     dupelicateHome();
     var task_0;
@@ -116,25 +140,6 @@ searchBar.addEventListener("keyup", function () {
         }
     }
 });
-searchBar.addEventListener("click", function () {
-    delText.style.visibility = "visible";
-});
-delText.addEventListener("click", function () {
-    delText.style.visibility = "hidden";
-});
-function markComplete(a) {
-    a.classList.toggle("completed");
-}
-function clearSearch() {
-    searchBar.value = null;
-}
-function clearMarked() {
-    var markedItems = document.getElementsByClassName("title");
-    for (var i = 0; i < markedItems.length; i++) {
-        var removeMarked = markedItems[i];
-        removeMarked.classList.remove("found");
-    }
-}
 var date = new Date();
 var day = date.getDate();
 var month = date.getMonth() + 1;

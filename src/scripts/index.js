@@ -1,3 +1,5 @@
+// Dom elements
+
 var sidebar = document.getElementById("more-container");
 var openbar = document.getElementById("openbar");
 var closebar = document.getElementById("closebar");
@@ -12,23 +14,35 @@ var newA = document.getElementById("newA");
 var newB = document.getElementById("newB");
 var title = hold.querySelectorAll(".title");
 var searchBar = document.getElementById("searchbar");
+
+// Info (check console)
+
 console.log("Hi there! I am Tazim and this my second project with HTML, CSS and JavaScript." +
     "\n" +
     "Date started : 17/12/2022" +
     "\n" +
     "Date ended : 09/01/2023");
+
+// show Searchbar
+
 searchBar.addEventListener("click", function () {
     delText.style.visibility = "visible";
 });
+
+// close Searchbar
+
 delText.addEventListener("click", function () {
     delText.style.visibility = "hidden";
 });
-function markComplete(a) {
-    a.classList.toggle("completed");
-}
+
+// Clear searchbar
+
 function clearSearch() {
     searchBar.value = null;
 }
+
+// Clear marked elements
+
 function clearMarked() {
     var markedItems = document.getElementsByClassName("title");
     for (var i = 0; i < markedItems.length; i++) {
@@ -36,6 +50,9 @@ function clearMarked() {
         removeMarked.classList.remove("found");
     }
 }
+
+// Search system
+
 searchBar.addEventListener("keyup", function () {
     dupelicateHome();
     var task_0;
@@ -140,6 +157,9 @@ searchBar.addEventListener("keyup", function () {
         }
     }
 });
+
+// Show date
+
 var date = new Date();
 var day = date.getDate();
 var month = date.getMonth() + 1;
@@ -147,16 +167,25 @@ var year = date.getFullYear();
 var currentDate = "".concat(day, " - ").concat(month, " - ").concat(year);
 var createDate = (showDate.innerText =
     "Created at \xa0 : \xa0" + currentDate + "");
+
+// Show sidebar
+
 function showSidebar() {
     sidebar.style.display = "block";
     openbar.style.display = "none";
     closebar.style.display = "block";
 }
+
+// Hide sidebar
+
 function hideSidebar() {
     sidebar.style.display = "none";
     openbar.style.display = "block";
     closebar.style.display = "none";
 }
+
+// Show selected filter
+
 function selectFilter(selected) {
     var selectionLi = selection.getElementsByTagName("li");
     for (var i = 0; i < selectionLi.length; i++) {
@@ -165,6 +194,9 @@ function selectFilter(selected) {
         selected.classList.add("active");
     }
 }
+
+// Limits task element numbers
+
 function taskLimit() {
     if (hold.children.length > 9) {
         newA.onclick = null;
@@ -176,6 +208,9 @@ function taskLimit() {
         newB.onclick = newTask;
     }
 }
+
+// Create new task(s)
+
 function newTask() {
     var li = document.createElement("li");
     li.classList.add("center");
@@ -217,6 +252,9 @@ function newTask() {
     hideSidebar();
     clearMarked();
 }
+
+// Remove all appllied filters
+
 function home(a) {
     var holder = hold.getElementsByTagName("li");
     for (var a_1 = 0; a_1 < holder.length; a_1++) {
@@ -227,6 +265,9 @@ function home(a) {
     selectFilter(a.parentElement.parentElement);
     clearMarked();
 }
+
+// Duplicate of "home()" for bug related issues
+
 function dupelicateHome() {
     var holder = hold.getElementsByTagName("li");
     for (var a = 0; a < holder.length; a++) {
@@ -236,6 +277,9 @@ function dupelicateHome() {
     hideSidebar();
     clearMarked();
 }
+
+// Show all the "Starred" tasks in the list
+
 function showStarred(a) {
     var holder = hold.getElementsByTagName("li");
     for (var a_2 = 0; a_2 < holder.length; a_2++) {
@@ -264,6 +308,9 @@ function showStarred(a) {
     selectFilter(a.parentElement.parentElement);
     clearMarked();
 }
+
+// Show all "Un-markedComplete" tasks
+
 function showUpcoming(a) {
     dupelicateHome();
     var holder = hold.getElementsByTagName("li");
@@ -281,6 +328,9 @@ function showUpcoming(a) {
     selectFilter(a.parentElement.parentElement);
     clearMarked();
 }
+
+// show all markedComplete tasks
+
 function completedTasks(a) {
     dupelicateHome();
     var holder = hold.getElementsByTagName("li");

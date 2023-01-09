@@ -1,4 +1,4 @@
-# Task-In is a To Do List app made with HTML,CSS and TypeScript
+# Task-In is a To Do List app made with HTML,CSS and JavaScript
 
 ## Visit Page : https://taz497.github.io/To-do-list/
 
@@ -10,7 +10,7 @@
 
 #### Date ended : 09/01/2023
 
-Discription : Task-In contains a single landing page "index.html" which is styled via "style.css" and scripted using "index.ts" which is compiled into "index.js".
+Discription : Task-In contains a single page "index.html" which is styled via "style.css" and scripted via "index.js".
 
 Font used : Poppins
 

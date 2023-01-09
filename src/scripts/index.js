@@ -8,97 +8,115 @@ var hold = document.getElementById("notes-hold");
 var selection = document.getElementById("selection");
 var showDate = document.getElementById("notes-text");
 var delText = document.getElementById("closebtn");
-var searchbar = document.getElementById("searchbar");
 var newA = document.getElementById("newA");
 var newB = document.getElementById("newB");
 var title = hold.querySelectorAll(".title");
-searchbar.addEventListener("keyup", function () {
+var searchBar = document.getElementById("searchbar");
+searchBar.addEventListener("keyup", function () {
     dupelicateHome();
-    var task_0_value;
-    if (document.getElementById("task-0") == null) {
-        task_0_value = "";
+    var task_0;
+    if (document.getElementById("task_0") == null) {
+        task_0 = "";
     }
     else {
-        task_0_value = document.getElementById("task-0").value;
+        task_0 = (document.getElementById("task_0")).value.toUpperCase();
     }
-    var task_1_value;
-    if (document.getElementById("task-1") == null) {
-        task_1_value = "";
-    }
-    else {
-        task_1_value = document.getElementById("task-1").value;
-    }
-    var task_2_value;
-    if (document.getElementById("task-2") == null) {
-        task_2_value = "";
+    var task_1;
+    if (document.getElementById("task_1") == null) {
+        task_1 = "";
     }
     else {
-        task_2_value = document.getElementById("task-2").value;
+        task_1 = (document.getElementById("task_1")).value.toUpperCase();
     }
-    var task_3_value;
-    if ((task_3_value = document.getElementById("task-3") == null)) {
-        task_3_value = "";
-    }
-    else {
-        task_3_value = document.getElementById("task-3").value;
-    }
-    var task_4_value;
-    if (document.getElementById("task-4") == null) {
-        task_4_value = "";
+    var task_2;
+    if (document.getElementById("task_2") == null) {
+        task_2 = "";
     }
     else {
-        task_4_value = document.getElementById("task-4").value;
+        task_2 = (document.getElementById("task_2")).value.toUpperCase();
     }
-    var task_5_value;
-    if (document.getElementById("task-5") == null) {
-        task_5_value = "";
-    }
-    else {
-        task_5_value = document.getElementById("task-5").value;
-    }
-    var task_6_value;
-    if (document.getElementById("task-6") == null) {
-        task_6_value = "";
+    var task_3;
+    if ((task_3 = document.getElementById("task_3") == null)) {
+        task_3 = "";
     }
     else {
-        task_6_value = document.getElementById("task-6").value;
+        task_3 = (document.getElementById("task_3")).value.toUpperCase();
     }
-    var task_7_value;
-    if (document.getElementById("task-7") == null) {
-        task_7_value = "";
-    }
-    else {
-        task_7_value = document.getElementById("task-7").value;
-    }
-    var task_8_value;
-    if (document.getElementById("task-8") == null) {
-        task_8_value = "";
+    var task_4;
+    if (document.getElementById("task_4") == null) {
+        task_4 = "";
     }
     else {
-        task_8_value = document.getElementById("task-8").value;
+        task_4 = (document.getElementById("task_4")).value.toUpperCase();
     }
-    var task_9_value;
-    if (document.getElementById("task-9") == null) {
-        task_9_value = "";
+    var task_5;
+    if (document.getElementById("task_5") == null) {
+        task_5 = "";
     }
     else {
-        task_9_value = document.getElementById("task-9").value;
+        task_5 = (document.getElementById("task_5")).value.toUpperCase();
     }
-    var taskItems = [
-        task_0_value,
-        task_1_value,
-        task_2_value,
-        task_3_value,
-        task_4_value,
-        task_5_value,
-        task_6_value,
-        task_7_value,
-        task_8_value,
-        task_9_value,
-    ];
-    console.log(taskItems);
+    var task_6;
+    if (document.getElementById("task_6") == null) {
+        task_6 = "";
+    }
+    else {
+        task_6 = (document.getElementById("task_6")).value.toUpperCase();
+    }
+    var task_7;
+    if (document.getElementById("task_7") == null) {
+        task_7 = "";
+    }
+    else {
+        task_7 = (document.getElementById("task_7")).value.toUpperCase();
+    }
+    var task_8;
+    if (document.getElementById("task_8") == null) {
+        task_8 = "";
+    }
+    else {
+        task_8 = (document.getElementById("task_8")).value.toUpperCase();
+    }
+    var task_9;
+    if (document.getElementById("task_9") !== null) {
+        task_9 = "";
+    }
+    else {
+        task_9 = (document.getElementById("task_9")).value.toUpperCase();
+    }
+    var taskItems = {
+        task_0: task_0,
+        task_1: task_1,
+        task_2: task_2,
+        task_3: task_3,
+        task_4: task_4,
+        task_5: task_5,
+        task_6: task_6,
+        task_7: task_7,
+        task_8: task_8,
+        task_9: task_9,
+    };
+    var userInput = (document.getElementById("searchbar")).value.toUpperCase();
+    for (var items in taskItems) {
+        if (taskItems.hasOwnProperty(items)) {
+            var value = taskItems[items];
+            if (value === userInput) {
+                var results = items;
+                var foundItems = document.getElementsByClassName("title");
+                for (var i = 0; i < foundItems.length; i++) {
+                    var eachFoundItems = foundItems[i];
+                    if (eachFoundItems.id == results) {
+                        eachFoundItems.classList.add("found");
+                    }
+                    else {
+                        eachFoundItems.classList.remove("found");
+                    }
+                }
+            }
+        }
+    }
 });
-searchbar.addEventListener("click", function () {
+searchBar.addEventListener("click", function () {
     delText.style.visibility = "visible";
 });
 delText.addEventListener("click", function () {
@@ -108,7 +126,14 @@ function markComplete(a) {
     a.classList.toggle("completed");
 }
 function clearSearch() {
-    searchbar.value = null;
+    searchBar.value = null;
+}
+function clearMarked() {
+    var markedItems = document.getElementsByClassName("title");
+    for (var i = 0; i < markedItems.length; i++) {
+        var removeMarked = markedItems[i];
+        removeMarked.classList.remove("found");
+    }
 }
 var date = new Date();
 var day = date.getDate();
@@ -170,11 +195,11 @@ function newTask() {
     dom_input.setAttribute("placeholder", "title");
     dom_input.setAttribute("maxlength", "45");
     dom_input.classList.add("title");
-    dom_input.setAttribute("id", "task-9");
+    dom_input.setAttribute("id", "task_9");
     var a = document.querySelectorAll(".title");
     a.forEach(function (dom_input, index) {
         dom_input.removeAttribute("id");
-        dom_input.setAttribute("id", "task-".concat(index));
+        dom_input.setAttribute("id", "task_".concat(index));
     });
     dom_j.setAttribute("class", "fas fa-times close");
     dom_j.setAttribute("title", "Remove");
@@ -185,6 +210,7 @@ function newTask() {
     li.appendChild(dom_j);
     li.appendChild(dom_k);
     hideSidebar();
+    clearMarked();
 }
 function home(a) {
     var holder = hold.getElementsByTagName("li");
@@ -194,6 +220,7 @@ function home(a) {
     }
     hideSidebar();
     selectFilter(a.parentElement.parentElement);
+    clearMarked();
 }
 function dupelicateHome() {
     var holder = hold.getElementsByTagName("li");
@@ -202,6 +229,7 @@ function dupelicateHome() {
         holderLi.style.display = "flex";
     }
     hideSidebar();
+    clearMarked();
 }
 function showStarred(a) {
     var holder = hold.getElementsByTagName("li");
@@ -229,6 +257,7 @@ function showStarred(a) {
     }
     hideSidebar();
     selectFilter(a.parentElement.parentElement);
+    clearMarked();
 }
 function showUpcoming(a) {
     dupelicateHome();
@@ -245,6 +274,7 @@ function showUpcoming(a) {
     }
     hideSidebar();
     selectFilter(a.parentElement.parentElement);
+    clearMarked();
 }
 function completedTasks(a) {
     dupelicateHome();
@@ -261,4 +291,5 @@ function completedTasks(a) {
     }
     hideSidebar();
     selectFilter(a.parentElement.parentElement);
+    clearMarked();
 }

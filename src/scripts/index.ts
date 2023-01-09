@@ -10,107 +10,148 @@ let hold = document.getElementById("notes-hold");
 let selection = document.getElementById("selection");
 let showDate = document.getElementById("notes-text");
 let delText = document.getElementById("closebtn");
-let searchbar = document.getElementById("searchbar");
 let newA = document.getElementById("newA");
 let newB = document.getElementById("newB");
 let title = hold.querySelectorAll(".title");
+let searchBar = document.getElementById("searchbar");
 
 // Search System
 
-searchbar.addEventListener("keyup", () => {
+searchBar.addEventListener("keyup", () => {
   dupelicateHome();
-  let task_0_value;
+  let task_0;
 
-  if (<HTMLInputElement>document.getElementById("task-0") == null) {
-    task_0_value = "";
+  if (<HTMLInputElement>document.getElementById("task_0") == null) {
+    task_0 = "";
   } else {
-    task_0_value = (<HTMLInputElement>document.getElementById("task-0")).value;
+    task_0 = (<HTMLInputElement>(
+      document.getElementById("task_0")
+    )).value.toUpperCase();
   }
 
-  let task_1_value;
-  if (<HTMLInputElement>document.getElementById("task-1") == null) {
-    task_1_value = "";
+  let task_1;
+  if (<HTMLInputElement>document.getElementById("task_1") == null) {
+    task_1 = "";
   } else {
-    task_1_value = (<HTMLInputElement>document.getElementById("task-1")).value;
+    task_1 = (<HTMLInputElement>(
+      document.getElementById("task_1")
+    )).value.toUpperCase();
   }
 
-  let task_2_value;
-  if (<HTMLInputElement>document.getElementById("task-2") == null) {
-    task_2_value = "";
+  let task_2;
+  if (<HTMLInputElement>document.getElementById("task_2") == null) {
+    task_2 = "";
   } else {
-    task_2_value = (<HTMLInputElement>document.getElementById("task-2")).value;
+    task_2 = (<HTMLInputElement>(
+      document.getElementById("task_2")
+    )).value.toUpperCase();
   }
 
-  let task_3_value;
-  if (
-    (task_3_value = <HTMLInputElement>document.getElementById("task-3") == null)
-  ) {
-    task_3_value = "";
+  let task_3;
+  if ((task_3 = <HTMLInputElement>document.getElementById("task_3") == null)) {
+    task_3 = "";
   } else {
-    task_3_value = (<HTMLInputElement>document.getElementById("task-3")).value;
+    task_3 = (<HTMLInputElement>(
+      document.getElementById("task_3")
+    )).value.toUpperCase();
   }
 
-  let task_4_value;
-  if (<HTMLInputElement>document.getElementById("task-4") == null) {
-    task_4_value = "";
+  let task_4;
+  if (<HTMLInputElement>document.getElementById("task_4") == null) {
+    task_4 = "";
   } else {
-    task_4_value = (<HTMLInputElement>document.getElementById("task-4")).value;
+    task_4 = (<HTMLInputElement>(
+      document.getElementById("task_4")
+    )).value.toUpperCase();
   }
 
-  let task_5_value;
-  if (<HTMLInputElement>document.getElementById("task-5") == null) {
-    task_5_value = "";
+  let task_5;
+  if (<HTMLInputElement>document.getElementById("task_5") == null) {
+    task_5 = "";
   } else {
-    task_5_value = (<HTMLInputElement>document.getElementById("task-5")).value;
+    task_5 = (<HTMLInputElement>(
+      document.getElementById("task_5")
+    )).value.toUpperCase();
   }
 
-  let task_6_value;
-  if (<HTMLInputElement>document.getElementById("task-6") == null) {
-    task_6_value = "";
+  let task_6;
+  if (<HTMLInputElement>document.getElementById("task_6") == null) {
+    task_6 = "";
   } else {
-    task_6_value = (<HTMLInputElement>document.getElementById("task-6")).value;
+    task_6 = (<HTMLInputElement>(
+      document.getElementById("task_6")
+    )).value.toUpperCase();
   }
 
-  let task_7_value;
-  if (<HTMLInputElement>document.getElementById("task-7") == null) {
-    task_7_value = "";
+  let task_7;
+  if (<HTMLInputElement>document.getElementById("task_7") == null) {
+    task_7 = "";
   } else {
-    task_7_value = (<HTMLInputElement>document.getElementById("task-7")).value;
+    task_7 = (<HTMLInputElement>(
+      document.getElementById("task_7")
+    )).value.toUpperCase();
   }
 
-  let task_8_value;
-  if (<HTMLInputElement>document.getElementById("task-8") == null) {
-    task_8_value = "";
+  let task_8;
+  if (<HTMLInputElement>document.getElementById("task_8") == null) {
+    task_8 = "";
   } else {
-    task_8_value = (<HTMLInputElement>document.getElementById("task-8")).value;
+    task_8 = (<HTMLInputElement>(
+      document.getElementById("task_8")
+    )).value.toUpperCase();
   }
 
-  let task_9_value;
-  if (<HTMLInputElement>document.getElementById("task-9") == null) {
-    task_9_value = "";
+  let task_9;
+  if (<HTMLInputElement>document.getElementById("task_9") !== null) {
+    task_9 = "";
   } else {
-    task_9_value = (<HTMLInputElement>document.getElementById("task-9")).value;
+    task_9 = (<HTMLInputElement>(
+      document.getElementById("task_9")
+    )).value.toUpperCase();
   }
 
-  let taskItems = [
-    task_0_value,
-    task_1_value,
-    task_2_value,
-    task_3_value,
-    task_4_value,
-    task_5_value,
-    task_6_value,
-    task_7_value,
-    task_8_value,
-    task_9_value,
-  ];
+  let taskItems = {
+    task_0,
+    task_1,
+    task_2,
+    task_3,
+    task_4,
+    task_5,
+    task_6,
+    task_7,
+    task_8,
+    task_9,
+  };
 
-  console.log(taskItems);
+  let userInput = (<HTMLInputElement>(
+    document.getElementById("searchbar")
+  )).value.toUpperCase();
+
+  for (let items in taskItems) {
+    if (taskItems.hasOwnProperty(items)) {
+      const value = taskItems[items];
+      if (value === userInput) {
+        let results = items;
+
+        let foundItems = document.getElementsByClassName("title");
+
+        for (let i = 0; i < foundItems.length; i++) {
+          let eachFoundItems = foundItems[i];
+
+          if (eachFoundItems.id == results) {
+            eachFoundItems.classList.add("found");
+          } else {
+            eachFoundItems.classList.remove("found");
+          }
+        }
+      }
+    }
+  }
 });
 
 // Searchbar close/show
 
-searchbar.addEventListener("click", () => {
+searchBar.addEventListener("click", () => {
   delText.style.visibility = "visible";
 });
 
@@ -127,7 +168,20 @@ function markComplete(a) {
 // Clear searchbar
 
 function clearSearch() {
-  (<HTMLInputElement | null>searchbar).value = null;
+  (<HTMLInputElement | null>searchBar).value = null;
+}
+
+// Clear all marked elements
+
+function clearMarked() {
+  
+  let markedItems = document.getElementsByClassName("title");
+
+  for (let i = 0; i < markedItems.length; i++) {
+    let removeMarked = markedItems[i];
+
+    removeMarked.classList.remove("found");
+  }
 }
 
 // Display date
@@ -217,7 +271,7 @@ function newTask() {
   dom_input.setAttribute("placeholder", "title");
   dom_input.setAttribute("maxlength", "45");
   dom_input.classList.add("title");
-  dom_input.setAttribute("id", "task-9");
+  dom_input.setAttribute("id", "task_9");
 
   // Unique id for each list items
 
@@ -225,7 +279,7 @@ function newTask() {
 
   a.forEach((dom_input, index) => {
     dom_input.removeAttribute(`id`);
-    dom_input.setAttribute(`id`, `task-${index}`);
+    dom_input.setAttribute(`id`, `task_${index}`);
   });
 
   dom_j.setAttribute("class", "fas fa-times close");
@@ -243,6 +297,7 @@ function newTask() {
   // Hides Sidebar after invoked (Mobile)
 
   hideSidebar();
+  clearMarked();
 }
 
 // Show all hiden elements
@@ -263,6 +318,7 @@ function home(a) {
   }
   hideSidebar();
   selectFilter(a.parentElement.parentElement);
+  clearMarked();
 }
 
 // Duplicate of "home" to counter bugs
@@ -282,6 +338,7 @@ function dupelicateHome() {
     holderLi.style.display = "flex";
   }
   hideSidebar();
+  clearMarked();
 }
 
 // Sorting system according to "Starred" elements
@@ -346,6 +403,7 @@ function showStarred(a) {
   }
   hideSidebar();
   selectFilter(a.parentElement.parentElement);
+  clearMarked();
 }
 
 // Sorting system according to "Upcoming" elements
@@ -369,6 +427,7 @@ function showUpcoming(a) {
   }
   hideSidebar();
   selectFilter(a.parentElement.parentElement);
+  clearMarked();
 }
 
 // Sorting system according to "Completed" elements
@@ -392,4 +451,5 @@ function completedTasks(a) {
   }
   hideSidebar();
   selectFilter(a.parentElement.parentElement);
+  clearMarked();
 }

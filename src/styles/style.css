@@ -52,6 +52,11 @@ body {
   border-radius: 10px;
   border: solid 1px var(--primaryIconHover);
 }
+
+.found {
+  background-color: #624db4a6 !important;
+  color: #000000 !important;
+}
 /* Sidenav Section*/
 
 .sidenav {
